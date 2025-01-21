@@ -3,8 +3,11 @@ import "./globals.css";
 import emailjs from "@emailjs/browser";
 
 export const metadata: Metadata = {
-  title: "v0 App",
+  title: "harshit-portfolio",
   description: "Created with v0",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

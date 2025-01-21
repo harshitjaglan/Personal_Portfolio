@@ -7,17 +7,35 @@ import Image from "next/image";
 const projects = [
   {
     id: 1,
-    title: "MapTravel",
+    title: (
+      <span>
+        MapTravel{" "}
+        <span className="text-sm italic text-purple-200">
+          {"     "}
+          Java, Spring Boot, React, Jenkins, Maven
+        </span>
+      </span>
+    ),
     image: "/images/springboot.png",
     description:
       "Personal project to mark places I want to visit, developed with a Spring Boot backend, a React (Vite) frontend, and Jenkins for CI/CD pipeline automation.",
+    link: "https://github.com/harshitjaglan/tourist-map-app",
   },
   {
     id: 2,
-    title: "TreeDatalize",
+    title: (
+      <span>
+        TreeDatalize{" "}
+        <span className="text-sm italic text-purple-200">
+          {" "}
+          | Python, Flask, Plotly
+        </span>
+      </span>
+    ),
     image: "/images/treeDatalize.jpg",
     description:
       "First place HackDavis 2023 helps the locals to better decide plants for their garden to prevent global warming",
+    link: "https://devpost.com/software/tree-datalize",
   },
   {
     id: 3,
@@ -25,6 +43,7 @@ const projects = [
     image: "/images/aggieshift.jpg",
     description:
       "Built at UC Davis hackathon 2024 for local non-profit for precise clock-in and clock-out of volunteers",
+    link: "https://devpost.com/software/thenewaggiehouse",
   },
 
   {
@@ -62,13 +81,24 @@ export default function Projects() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="bg-gray-800 rounded-lg shadow-md overflow-hidden"
             >
-              <Image
-                src={project.image || "/placeholder.svg"}
-                alt={project.title}
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-90 transition-opacity"
+              >
+                <Image
+                  src={project.image || "/placeholder.svg"}
+                  alt={
+                    typeof project.title === "string"
+                      ? project.title
+                      : "Project image"
+                  }
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover"
+                />
+              </a>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-purple-300">
                   {project.title}
