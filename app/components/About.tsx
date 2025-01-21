@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function About() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <section id="about" ref={ref} className="py-20 bg-gray-800">
@@ -26,12 +26,12 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg text-purple-100 leading-relaxed max-w-2xl mx-auto"
         >
-          Hello! I'm a passionate web developer with a keen eye for design. I love creating beautiful, functional
-          websites that provide great user experiences. With expertise in modern web technologies, I bring ideas to life
-          through clean, efficient code.
+          Hello! I'm a passionate web developer with a keen eye for design. I
+          love creating beautiful, functional websites that provide great user
+          experiences. With expertise in modern web technologies, I bring ideas
+          to life through clean, efficient code.
         </motion.p>
       </div>
     </section>
-  )
+  );
 }
-

@@ -1,35 +1,46 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
 
 const projects = [
   {
     id: 1,
-    title: "Project 1",
-    image: "/placeholder.svg?height=300&width=400",
-    description: "A brief description of Project 1",
+    title: "MapTravel",
+    image: "/images/springboot.png",
+    description:
+      "Personal project to mark places I want to visit, developed with a Spring Boot backend, a React (Vite) frontend, and Jenkins for CI/CD pipeline automation.",
   },
   {
     id: 2,
-    title: "Project 2",
-    image: "/placeholder.svg?height=300&width=400",
-    description: "A brief description of Project 2",
+    title: "TreeDatalize",
+    image: "/images/treeDatalize.jpg",
+    description:
+      "First place HackDavis 2023 helps the locals to better decide plants for their garden to prevent global warming",
   },
   {
     id: 3,
-    title: "Project 3",
-    image: "/placeholder.svg?height=300&width=400",
-    description: "A brief description of Project 3",
+    title: "AggieShift",
+    image: "/images/aggieshift.jpg",
+    description:
+      "Built at UC Davis hackathon 2024 for local non-profit for precise clock-in and clock-out of volunteers",
   },
-]
+
+  {
+    id: 4,
+    title: "Wildfire Insurance",
+    image: "/placeholder.svg?height=300&width=400",
+    description:
+      "Helping those in need to file insurance claims to recall all lost items and create a ",
+  },
+];
 
 export default function Projects() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <section id="projects" ref={ref} className="py-20 bg-gray-900">
@@ -59,7 +70,9 @@ export default function Projects() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-purple-300">{project.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-purple-300">
+                  {project.title}
+                </h3>
                 <p className="text-purple-100">{project.description}</p>
               </div>
             </motion.div>
@@ -67,6 +80,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
