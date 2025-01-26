@@ -34,7 +34,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-24 flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 to-purple-900"
+      className="relative min-h-screen pt-16 flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 to-purple-900"
     >
       <AnimatedDots />
       {/* Floating background images */}
@@ -74,18 +74,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-bold mb-4 text-purple-300"
+          className="text-5xl font-bold mb-12 text-purple-300"
         >
           Harshit Jaglan
         </motion.h1>
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl mb-8 text-purple-100"
         >
           Web Developer & Designer
-        </motion.p>
+        </motion.p> */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
