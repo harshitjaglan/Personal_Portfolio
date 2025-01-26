@@ -100,6 +100,7 @@ export default function Hero() {
             className="rounded-full mx-auto border-4 border-purple-400 shadow-lg"
           />
         </motion.div>
+        {/* Social media icons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,6 +123,26 @@ export default function Hero() {
           >
             <Linkedin size={40} />
           </a>
+        </motion.div>
+        {/* Spotify player with label, positioned to the right */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-8 absolute right-20 top-1/2 transform -translate-y-1/2"
+        >
+          <p className="text-purple-300 mb-2 text-sm font-medium text-center">
+            Play my favorite song ♪
+          </p>
+          <iframe
+            src="https://open.spotify.com/embed/track/0iiB9CYptXO5Fz728LHHsQ?utm_source=generator"
+            width="300"
+            height="80"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            className="mx-auto rounded-lg shadow-lg opacity-80 hover:opacity-100 transition-opacity"
+          ></iframe>
         </motion.div>
         {/* Animated roles */}
         <div className="h-8 mt-6">
