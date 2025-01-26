@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import About from "./components/About";
+
+import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Sidebar from "./components/Sidebar";
@@ -16,7 +17,8 @@ export default function Home() {
       <Sidebar />
       <main>
         <Hero />
-        <About />
+
+        <Experience />
         <Projects />
         <Contact />
       </main>

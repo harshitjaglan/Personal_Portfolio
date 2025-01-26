@@ -21,12 +21,13 @@ export default function Header() {
               Home
             </Link>
           </li>
+
           <li>
             <Link
-              href="#about"
+              href="#experience"
               className="text-purple-300 hover:text-purple-100 transition duration-300"
             >
-              About
+              Experience
             </Link>
           </li>
           <li>

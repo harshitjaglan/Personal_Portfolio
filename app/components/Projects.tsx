@@ -51,7 +51,8 @@ const projects = [
     title: "Wildfire Insurance",
     image: "/placeholder.svg?height=300&width=400",
     description:
-      "Helping those in need to file insurance claims to recall all lost items and create a ",
+      "Helping those in need to file insurance claims to recall all lost items and create a list of items to buy",
+    link: "https://github.com/harshitjaglan/Wildfire-Insurance",
   },
 ];
 

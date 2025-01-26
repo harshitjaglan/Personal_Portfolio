@@ -1,10 +1,36 @@
 "use client";
-
+import { Github, Linkedin } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useAnimationControls } from "framer-motion";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import FloatingImage from "./FloatingImage";
 import AnimatedDots from "./AnimatedDots";
+const roles = ["Full-Stack Developer", "Software Engineer", "DevOps Engineer"];
 export default function Hero() {
+  const controls = useAnimationControls();
+  const [currentRole, setCurrentRole] = useState(0);
+
+  useEffect(() => {
+    const animate = async () => {
+      while (true) {
+        await controls.start({
+          opacity: 1,
+          x: 0,
+          transition: { duration: 0.5 },
+        });
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await controls.start({
+          opacity: 0,
+          x: -50,
+          transition: { duration: 0.5 },
+        });
+        setCurrentRole((prev) => (prev + 1) % roles.length);
+      }
+    };
+
+    animate();
+  }, [controls]);
   return (
     <section
       id="home"
@@ -74,6 +100,41 @@ export default function Hero() {
             className="rounded-full mx-auto border-4 border-purple-400 shadow-lg"
           />
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-16 flex justify-center space-x-4"
+        >
+          <a
+            href="https://github.com/harshitjaglan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-purple-300 hover:text-purple-100 transition-colors duration-300"
+          >
+            <Github size={40} />
+          </a>
+          <a
+            href="https://linkedin.com/in/harshit-jaglan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-purple-300 hover:text-purple-100 transition-colors duration-300"
+          >
+            <Linkedin size={40} />
+          </a>
+        </motion.div>
+        {/* Animated roles */}
+        <div className="h-8 mt-6">
+          {" "}
+          {/* Added margin-top for spacing */}
+          <motion.p
+            initial={{ opacity: 0, x: -50 }}
+            animate={controls}
+            className="text-xl text-purple-100 font-light tracking-wide"
+          >
+            {roles[currentRole]}
+          </motion.p>
+        </div>
       </div>
     </section>
   );
