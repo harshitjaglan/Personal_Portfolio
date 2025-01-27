@@ -8,6 +8,25 @@ const projects = [
   {
     id: 1,
     title: (
+      <span className="flex items-center gap-2">
+        Wildfire Insurance
+        <span className="flex items-center gap-1">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+          </span>
+          <span className="text-xs font-semibold text-red-400">LIVE</span>
+        </span>
+      </span>
+    ),
+    image: "/images/wildfire.png",
+    description:
+      "Helping those in need to file insurance claims to recall all lost items and create a list of items to buy",
+    link: "https://wildfiree.netlify.app/",
+  },
+  {
+    id: 2,
+    title: (
       <span>
         MapTravel{" "}
         <span className="text-sm italic text-purple-200">
@@ -22,7 +41,7 @@ const projects = [
     link: "https://github.com/harshitjaglan/tourist-map-app",
   },
   {
-    id: 2,
+    id: 3,
     title: (
       <span>
         TreeDatalize{" "}
@@ -38,21 +57,12 @@ const projects = [
     link: "https://devpost.com/software/tree-datalize",
   },
   {
-    id: 3,
+    id: 4,
     title: "AggieShift",
     image: "/images/aggieshift.jpg",
     description:
       "Built at UC Davis hackathon 2024 for local non-profit for precise clock-in and clock-out of volunteers",
     link: "https://devpost.com/software/thenewaggiehouse",
-  },
-
-  {
-    id: 4,
-    title: "Wildfire Insurance",
-    image: "/placeholder.svg?height=300&width=400",
-    description:
-      "Helping those in need to file insurance claims to recall all lost items and create a list of items to buy",
-    link: "https://github.com/harshitjaglan/Wildfire-Insurance",
   },
 ];
 
