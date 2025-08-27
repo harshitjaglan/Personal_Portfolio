@@ -14,6 +14,14 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
+    title: "Software Development Intern",
+    company: "Amazon",
+    period: "May 2025 - August 2025",
+    description:
+      "Designed a multi-region AWS CloudWatch log retrieval system in TypeScript, reducing log-fetch latency by 90% and API calls by 60%. Built a browser-based log viewer for side-by-side comparison, improving incident investigation speed and debugging efficiency.",
+    image: "/images/luna.jpg",
+  },
+  {
     title: "Software Engineering Intern",
     company: "Taskified",
     period: "June 2024 - September 2024",
