@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import AnimatedDots from "./AnimatedDots";
 
 const projects = [
   {
@@ -67,17 +69,25 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [isMounted, setIsMounted] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
-    <section id="projects" ref={ref} className="py-20 bg-gray-900">
-      <div className="container mx-auto px-6">
+    <section id="projects" ref={ref} className="relative py-20 overflow-hidden">
+      <AnimatedDots />
+      <div className="container mx-auto px-6 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={
+            isMounted && inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+          }
           transition={{ duration: 0.8 }}
           className="text-3xl font-bold mb-12 text-center text-purple-300"
         >
@@ -88,7 +98,11 @@ export default function Projects() {
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              animate={
+                isMounted && inView
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 20 }
+              }
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="bg-gray-800 rounded-lg shadow-md overflow-hidden"
             >

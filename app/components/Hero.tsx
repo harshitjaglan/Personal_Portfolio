@@ -34,7 +34,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-16 flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-900 to-purple-900"
+      className="relative min-h-screen pt-16 flex items-center justify-center overflow-hidden"
     >
       <AnimatedDots />
       {/* Floating background images */}

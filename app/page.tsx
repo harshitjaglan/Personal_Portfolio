@@ -12,7 +12,7 @@ import Sidebar from "./components/Sidebar";
 
 export default function Home() {
   return (
-    <div className="bg-gray-900 min-h-screen text-white">
+    <div className="bg-gradient-to-b from-gray-900 via-purple-900 to-gray-800 min-h-screen text-white">
       <Header />
       <Sidebar />
       <main>

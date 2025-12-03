@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import emailjs from "@emailjs/browser";
 
 export const metadata: Metadata = {
   title: "harshit-portfolio",
@@ -15,8 +14,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  emailjs.init("j6AdRJxoXuSP0zcfD");
-
   return (
     <html lang="en">
       <body>{children}</body>

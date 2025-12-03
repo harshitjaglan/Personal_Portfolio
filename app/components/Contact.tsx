@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import emailjs from "@emailjs/browser";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AnimatedDots from "./AnimatedDots";
 
 export default function Contact() {
+  const [isMounted, setIsMounted] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -13,6 +15,12 @@ export default function Contact() {
 
   const [status, setStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize EmailJS on client side only
+  useEffect(() => {
+    setIsMounted(true);
+    emailjs.init("j6AdRJxoXuSP0zcfD");
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,11 +48,14 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={ref} className="py-20 bg-gray-800">
-      <div className="container mx-auto px-6">
+    <section id="contact" ref={ref} className="relative py-20 overflow-hidden">
+      <AnimatedDots />
+      <div className="container mx-auto px-6 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={
+            isMounted && inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+          }
           transition={{ duration: 0.8 }}
           className="text-3xl font-bold mb-8 text-center text-purple-300"
         >
@@ -52,7 +63,9 @@ export default function Contact() {
         </motion.h2>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={
+            isMounted && inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+          }
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-md mx-auto"
         >

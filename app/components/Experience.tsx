@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import AnimatedDots from "./AnimatedDots";
 
 interface ExperienceItem {
   title: string;
@@ -48,6 +50,8 @@ const experiences: ExperienceItem[] = [
 ];
 
 export default function Experience() {
+  const [isMounted, setIsMounted] = useState(false);
+
   const refs = experiences.map(() => ({
     ref: null as unknown as (node?: Element | null) => void,
     inView: false,
@@ -63,9 +67,14 @@ export default function Experience() {
     return inView;
   });
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
-    <section id="experience" className="py-20 bg-gray-800">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="relative py-20 overflow-hidden">
+      <AnimatedDots />
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,7 +96,11 @@ export default function Experience() {
                 key={index}
                 ref={ref}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
+                animate={
+                  isMounted && inView
+                    ? { opacity: 1, x: 0 }
+                    : { opacity: 0, x: index % 2 === 0 ? -50 : 50 }
+                }
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className={`relative flex items-center mb-12 ${
                   index % 2 === 0
